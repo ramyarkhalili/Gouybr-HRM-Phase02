@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>نتیجه پرسش‌نامه – phase2-report</title>
+<title>نتیجه پرسش‌نامه – گزارش فاز دوم</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,8 +114,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./pics/logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">phase2-report</span>
+    <span class="navbar-title">گزارش فاز دوم</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -205,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="d7cf97d8-8a3c-4046-af7d-4fda09b2b49b" class="cell" data-execution_count="64">
+<div id="d7cf97d8-8a3c-4046-af7d-4fda09b2b49b" class="cell" data-execution_count="100">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># imports and functions</span></span>
@@ -233,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>SURVEY_ID <span class="op">=</span> <span class="st">"1617468"</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>BASE_SURVEY_URL <span class="op">=</span> <span class="st">"https://survey.porsline.ir/api/v2/surveys/</span><span class="sc">{SURVEY_ID}</span><span class="st">"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>BASE_SURVEY_URL <span class="op">=</span> <span class="st">"https://survey.porsline.ir"</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"psk.txt"</span>,<span class="st">'r'</span>) <span class="im">as</span> fh:</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    api_key <span class="op">=</span> fh.readline().strip()</span>
@@ -244,126 +247,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Content-Type'</span>: <span class="st">'application/json'</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> BASE_SURVEY_URL <span class="op">+</span> <span class="ss">f"/api/v2/surveys/</span><span class="sc">{</span>SURVEY_ID<span class="sc">}</span><span class="ss">/responses/results-table"</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># تابع تبدیل متن فارسی</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prepare_persian_text(text):</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    reshaped_text <span class="op">=</span> arabic_reshaper.reshape(text)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> get_display(reshaped_text)</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># تنظیم فونت فارسی</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>font_path <span class="op">=</span> <span class="st">"fonts/xb-zar/Zar/XB Zar.ttf"</span>  <span class="co"># مسیر فونت  # مسیر فونت فارسی</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>prop <span class="op">=</span> font_manager.FontProperties(fname<span class="op">=</span>font_path)</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">'font'</span>, family<span class="op">=</span>prop.get_name())</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the excel file</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">'Phase02.xlsx'</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.request(<span class="st">"GET"</span>, url, headers<span class="op">=</span>headers)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>n_responders <span class="op">=</span> <span class="bu">int</span>(response.json()[<span class="st">"responders_count"</span>])</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co"># تابع تبدیل متن فارسی</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prepare_persian_text(text):</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    reshaped_text <span class="op">=</span> arabic_reshaper.reshape(text)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> get_display(reshaped_text)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># تنظیم فونت فارسی</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>font_path <span class="op">=</span> <span class="st">"fonts/xb-zar/Zar/XB Zar.ttf"</span>  <span class="co"># مسیر فونت  # مسیر فونت فارسی</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>prop <span class="op">=</span> font_manager.FontProperties(fname<span class="op">=</span>font_path)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">'font'</span>, family<span class="op">=</span>prop.get_name())</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the excel file</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">'Phase02.xlsx'</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-<div id="2bccdb0f-0010-44b8-84a4-72a90c421dba" class="cell" data-execution_count="71">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_total_participants(survey_id):</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Fetches the total number of participants from the survey.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    survey_id (str): The ID of the survey.</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"> </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    int: The total number of participants, or None if an error occurs.</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    api_url <span class="op">=</span> <span class="ss">f"https://survey.porsline.ir/api/v2/surveys/</span><span class="sc">{</span>survey_id<span class="sc">}</span><span class="ss">/responses/result-table/"</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> requests.get(api_url, headers<span class="op">=</span>headers)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        response.raise_for_status()  <span class="co"># Raise an exception for bad status codes</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> response.json()  <span class="co"># Parse the JSON response</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># --- ADAPT THIS BASED ON THE ACTUAL API RESPONSE STRUCTURE ---</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Assuming the response contains a 'total_count' or similar field</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># You'll need to inspect the actual response to determine the correct key</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        participant_count <span class="op">=</span> data.get(<span class="st">'meta'</span>, {}).get(<span class="st">'total'</span>)  <span class="co"># Example: If count is in 'meta'</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> participant_count <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            participant_count <span class="op">=</span> data.get(<span class="st">'total_count'</span>)  <span class="co"># Another common key name</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> participant_count <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            participant_count <span class="op">=</span> data.get(<span class="st">'count'</span>) <span class="co"># Try 'count' too</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># --- </span><span class="re">END</span><span class="co"> OF ADAPTATION SECTION ---</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> participant_count <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">int</span>(participant_count)  <span class="co"># Ensure it's an integer</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> requests.exceptions.RequestException <span class="im">as</span> e:</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> json.JSONDecodeError:</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Error: Could not parse JSON response."</span>)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>total_participants <span class="op">=</span> get_total_participants(SURVEY_ID)</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> total_participants <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total Participants: </span><span class="sc">{</span>total_participants<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Could not retrieve total participants."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Error: 404 Client Error: Not Found for url: https://survey.porsline.ir/api/v2/surveys/1617468/responses/result-table/
-Could not retrieve total participants.</code></pre>
-</div>
 </div>
 <section id="اطلاعات-زمینهای" class="level2">
 <h2 class="anchored" data-anchor-id="اطلاعات-زمینهای">اطلاعات زمینه‌ای</h2>
 <p>ما در اینجا چه چیزهایی را باید بگذاریم؟</p>
 <section id="پراکندگی-جنسیت" class="level3">
 <h3 class="anchored" data-anchor-id="پراکندگی-جنسیت">پراکندگی جنسیت</h3>
-<div id="68e457d5-df6f-4c94-aa67-b2d50a9d874e" class="cell" data-execution_count="55">
+<div id="68e457d5-df6f-4c94-aa67-b2d50a9d874e" class="cell" data-execution_count="101">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the column exists</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'جنسیت شما:'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: The column 'جنسیت شما:' does not exist in the excel file."</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the occurrences of each gender</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    gender_counts <span class="op">=</span> df[<span class="st">'جنسیت شما:'</span>].value_counts()</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define colors using the COLORS dictionary</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    gender_color_mapping <span class="op">=</span> {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'زن'</span>: COLORS[<span class="st">'success'</span>],  </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'مرد'</span>: COLORS[<span class="st">'danger'</span>]    </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> {gender: gender_color_mapping.get(gender, COLORS[<span class="st">'dark'</span>]) <span class="cf">for</span> gender <span class="kw">in</span> gender_counts.index}  <span class="co"># Use 'dark' as a fallback</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the bar chart</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    plt.bar(gender_counts.index, gender_counts.values, color<span class="op">=</span>[colors[gender] <span class="cf">for</span> gender <span class="kw">in</span> gender_counts.index])</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add labels and title</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    plt.title(prepare_persian_text(<span class="st">'پراکندگی جنسیت'</span>))</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(prepare_persian_text(<span class="st">'جنسیت'</span>))</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(prepare_persian_text(<span class="st">'تعداد'</span>))</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change x-axis labels</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    new_labels <span class="op">=</span> {<span class="st">'زن'</span>: prepare_persian_text(<span class="st">'زن'</span>), <span class="st">'مرد'</span>: prepare_persian_text(<span class="st">'مرد'</span>)}</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    plt.xticks(gender_counts.index, [new_labels[gender] <span class="cf">for</span> gender <span class="kw">in</span> gender_counts.index], rotation<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Show the plot</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the column exists</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'جنسیت شما:'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: The column 'جنسیت شما:' does not exist in the excel file."</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the occurrences of each gender</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    gender_counts <span class="op">=</span> df[<span class="st">'جنسیت شما:'</span>].value_counts()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define colors using the COLORS dictionary</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    gender_color_mapping <span class="op">=</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'زن'</span>: COLORS[<span class="st">'success'</span>],  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'مرد'</span>: COLORS[<span class="st">'danger'</span>]    </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> {gender: gender_color_mapping.get(gender, COLORS[<span class="st">'dark'</span>]) <span class="cf">for</span> gender <span class="kw">in</span> gender_counts.index}  <span class="co"># Use 'dark' as a fallback</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the bar chart</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    plt.bar(gender_counts.index, gender_counts.values, color<span class="op">=</span>[colors[gender] <span class="cf">for</span> gender <span class="kw">in</span> gender_counts.index])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add labels and title</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    plt.title(prepare_persian_text(<span class="st">'پراکندگی جنسیت'</span>))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(prepare_persian_text(<span class="st">'جنسیت'</span>))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(prepare_persian_text(<span class="st">'تعداد'</span>))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change x-axis labels</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    new_labels <span class="op">=</span> {<span class="st">'زن'</span>: prepare_persian_text(<span class="st">'زن'</span>), <span class="st">'مرد'</span>: prepare_persian_text(<span class="st">'مرد'</span>)}</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    plt.xticks(gender_counts.index, [new_labels[gender] <span class="cf">for</span> gender <span class="kw">in</span> gender_counts.index], rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Show the plot</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="part04_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="پراکندگی-سن" class="level3">
+<h3 class="anchored" data-anchor-id="پراکندگی-سن">پراکندگی سن</h3>
+<div id="c73b1ab6-321f-48f8-8966-1c5d6593dbac" class="cell" data-execution_count="102">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the column exists</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'سن شما:'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: The column 'سن شما:' does not exist in the excel file."</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the desired order of age groups</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ordered_ages <span class="op">=</span> [</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۲۵ سال'</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۶ تا ۳۵ سال'</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۳۶ تا ۴۵ سال'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بالای ۴۵ سال'</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a mapping from the original age values to the desired order</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    age_mapping <span class="op">=</span> {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        age: ordered_age</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ordered_age <span class="kw">in</span> ordered_ages</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> age <span class="kw">in</span> df[<span class="st">'سن شما:'</span>].unique() <span class="cf">if</span> ordered_age <span class="kw">in</span> df[<span class="st">'سن شما:'</span>].unique() <span class="kw">and</span> ordered_age <span class="kw">in</span> age</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a categorical column for sorting</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    categorical_age <span class="op">=</span> pd.Categorical(df[<span class="st">'سن شما:'</span>].<span class="bu">map</span>(age_mapping), categories<span class="op">=</span>ordered_ages, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    df_sorted <span class="op">=</span> df.assign(sorted_age<span class="op">=</span>categorical_age).sort_values(<span class="st">'sorted_age'</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the unique age groups in the sorted order</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    unique_ages_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_age'</span>].unique()</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the occurrences of each age group in the sorted order</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    age_counts_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_age'</span>].value_counts().reindex(ordered_ages).fillna(<span class="dv">0</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a color dictionary (using explicit colors from COLORS - you'll need to adapt)</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This is where you'll need to decide how to map your age groups to your COLORS</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># I'm providing a placeholder mapping - YOU MUST CHANGE THIS!</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    age_color_mapping <span class="op">=</span> {</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۲۵ سال'</span>: COLORS[<span class="st">'primary'</span>],</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۶ تا ۳۵ سال'</span>: COLORS[<span class="st">'success'</span>],</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۳۶ تا ۴۵ سال'</span>: COLORS[<span class="st">'warning'</span>],</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بالای ۴۵ سال'</span>: COLORS[<span class="st">'danger'</span>]</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> {age: age_color_mapping.get(age, COLORS[<span class="st">'dark'</span>]) <span class="cf">for</span> age <span class="kw">in</span> unique_ages_sorted} <span class="co"># Use 'dark' as a fallback</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define new labels (using the desired order)</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    x_labels <span class="op">=</span> [prepare_persian_text(age) <span class="cf">for</span> age <span class="kw">in</span> age_counts_sorted.index]</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the bar chart</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    plt.bar(age_counts_sorted.index, age_counts_sorted.values, color<span class="op">=</span>[colors[age] <span class="cf">for</span> age <span class="kw">in</span> age_counts_sorted.index])</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add labels and title</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    plt.title(prepare_persian_text(<span class="st">'پراکندگی سن'</span>))</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(prepare_persian_text(<span class="st">'بازه سنی'</span>))</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(prepare_persian_text(<span class="st">'تعداد'</span>))</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the counts above each bar and adjust y-axis limits</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    max_count <span class="op">=</span> <span class="bu">max</span>(age_counts_sorted.values)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="dv">0</span>, max_count <span class="op">*</span> <span class="fl">1.1</span>)  <span class="co"># Increase y-axis limit by 10% to accommodate annotations</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, count <span class="kw">in</span> <span class="bu">enumerate</span>(age_counts_sorted.values):</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        plt.text(age_counts_sorted.index[i], count <span class="op">+</span> max_count <span class="op">*</span> <span class="fl">0.02</span>, <span class="bu">str</span>(<span class="bu">int</span>(count)), ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>)  <span class="co"># Adjust vertical position as a fraction of max_count</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change x-axis labels</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    plt.xticks(age_counts_sorted.index, x_labels, rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>) <span class="co"># Rotate for better readability</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Show the plot</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -373,158 +393,80 @@ Could not retrieve total participants.</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="پراکندگی-سن" class="level3">
-<h3 class="anchored" data-anchor-id="پراکندگی-سن">پراکندگی سن</h3>
-<div id="c73b1ab6-321f-48f8-8966-1c5d6593dbac" class="cell" data-execution_count="53">
+<div id="4776aab9-64bb-4276-b433-e12d4cd903f5" class="cell" data-execution_count="103">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the column exists</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'سن شما:'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: The column 'سن شما:' does not exist in the excel file."</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the desired order of age groups</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ordered_ages <span class="op">=</span> [</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۲۵ سال'</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۶ تا ۳۵ سال'</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۳۶ تا ۴۵ سال'</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بالای ۴۵ سال'</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a mapping from the original age values to the desired order</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    age_mapping <span class="op">=</span> {</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        age: ordered_age</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ordered_age <span class="kw">in</span> ordered_ages</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> age <span class="kw">in</span> df[<span class="st">'سن شما:'</span>].unique() <span class="cf">if</span> ordered_age <span class="kw">in</span> df[<span class="st">'سن شما:'</span>].unique() <span class="kw">and</span> ordered_age <span class="kw">in</span> age</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a categorical column for sorting</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    categorical_age <span class="op">=</span> pd.Categorical(df[<span class="st">'سن شما:'</span>].<span class="bu">map</span>(age_mapping), categories<span class="op">=</span>ordered_ages, ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    df_sorted <span class="op">=</span> df.assign(sorted_age<span class="op">=</span>categorical_age).sort_values(<span class="st">'sorted_age'</span>)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the unique age groups in the sorted order</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    unique_ages_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_age'</span>].unique()</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the occurrences of each age group in the sorted order</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    age_counts_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_age'</span>].value_counts().reindex(ordered_ages).fillna(<span class="dv">0</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a color dictionary (using explicit colors from COLORS - you'll need to adapt)</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This is where you'll need to decide how to map your age groups to your COLORS</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># I'm providing a placeholder mapping - YOU MUST CHANGE THIS!</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    age_color_mapping <span class="op">=</span> {</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۲۵ سال'</span>: COLORS[<span class="st">'primary'</span>],</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۶ تا ۳۵ سال'</span>: COLORS[<span class="st">'success'</span>],</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۳۶ تا ۴۵ سال'</span>: COLORS[<span class="st">'warning'</span>],</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بالای ۴۵ سال'</span>: COLORS[<span class="st">'danger'</span>]</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> {age: age_color_mapping.get(age, COLORS[<span class="st">'dark'</span>]) <span class="cf">for</span> age <span class="kw">in</span> unique_ages_sorted} <span class="co"># Use 'dark' as a fallback</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define new labels (using the desired order)</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    x_labels <span class="op">=</span> [prepare_persian_text(age) <span class="cf">for</span> age <span class="kw">in</span> age_counts_sorted.index]</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the bar chart</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    plt.bar(age_counts_sorted.index, age_counts_sorted.values, color<span class="op">=</span>[colors[age] <span class="cf">for</span> age <span class="kw">in</span> age_counts_sorted.index])</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add labels and title</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    plt.title(prepare_persian_text(<span class="st">'پراکندگی سن'</span>))</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(prepare_persian_text(<span class="st">'بازه سنی'</span>))</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(prepare_persian_text(<span class="st">'تعداد'</span>))</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the counts above each bar and adjust y-axis limits</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    max_count <span class="op">=</span> <span class="bu">max</span>(age_counts_sorted.values)</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="dv">0</span>, max_count <span class="op">*</span> <span class="fl">1.1</span>)  <span class="co"># Increase y-axis limit by 10% to accommodate annotations</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, count <span class="kw">in</span> <span class="bu">enumerate</span>(age_counts_sorted.values):</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>        plt.text(age_counts_sorted.index[i], count <span class="op">+</span> max_count <span class="op">*</span> <span class="fl">0.02</span>, <span class="bu">str</span>(<span class="bu">int</span>(count)), ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>)  <span class="co"># Adjust vertical position as a fraction of max_count</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change x-axis labels</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    plt.xticks(age_counts_sorted.index, x_labels, rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>) <span class="co"># Rotate for better readability</span></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Show the plot</span></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the column exists</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'اندازه شرکت:'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: The column 'اندازه شرکت:' does not exist in the excel file."</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the desired order of company sizes with the combined category</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    ordered_sizes <span class="op">=</span> [</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۵۰ نفر'</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۵۱ تا ۲۰۰ نفر'</span>,  <span class="co"># Combined category</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۰۰ تا ۵۰۰ نفر'</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بیش از ۵۰۰ نفر'</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a mapping from the original size values to the desired order</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    size_mapping <span class="op">=</span> {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        size: <span class="st">'۵۱ تا ۲۰۰ نفر'</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> size <span class="kw">in</span> df[<span class="st">'اندازه شرکت:'</span>].unique()</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'۵۱ تا ۱۰۰ نفر'</span> <span class="kw">in</span> size <span class="kw">or</span> <span class="st">'۱۰۱ تا ۲۰۰ نفر'</span> <span class="kw">in</span> size</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    size_mapping.update({</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        size: size</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> size <span class="kw">in</span> df[<span class="st">'اندازه شرکت:'</span>].unique()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'کمتر از ۵۰ نفر'</span> <span class="kw">in</span> size <span class="kw">or</span> <span class="st">'۲۰۰ تا ۵۰۰ نفر'</span> <span class="kw">in</span> size <span class="kw">or</span> <span class="st">'بیش از ۵۰۰ نفر'</span> <span class="kw">in</span> size</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a categorical column for sorting</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    categorical_size <span class="op">=</span> pd.Categorical(df[<span class="st">'اندازه شرکت:'</span>].<span class="bu">map</span>(size_mapping), categories<span class="op">=</span>ordered_sizes, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    df_sorted <span class="op">=</span> df.assign(sorted_size<span class="op">=</span>categorical_size).sort_values(<span class="st">'sorted_size'</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the unique company sizes in the sorted order</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    unique_sizes_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_size'</span>].unique()</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the occurrences of each company size in the sorted order</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    size_counts_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_size'</span>].value_counts().reindex(ordered_sizes).fillna(<span class="dv">0</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    size_color_mapping <span class="op">=</span> {</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۵۰ نفر'</span>: COLORS[<span class="st">'primary'</span>],</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۵۱ تا ۲۰۰ نفر'</span>: COLORS[<span class="st">'success'</span>],</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۰۰ تا ۵۰۰ نفر'</span>: COLORS[<span class="st">'warning'</span>],</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بیش از ۵۰۰ نفر'</span>: COLORS[<span class="st">'danger'</span>]</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> {size: size_color_mapping.get(size, COLORS[<span class="st">'dark'</span>]) <span class="cf">for</span> size <span class="kw">in</span> unique_sizes_sorted} <span class="co"># Use 'dark' as a fallback</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define new labels (using the desired order)</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    x_labels <span class="op">=</span> [prepare_persian_text(size) <span class="cf">for</span> size <span class="kw">in</span> size_counts_sorted.index]</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the bar chart</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    plt.bar(size_counts_sorted.index, size_counts_sorted.values, color<span class="op">=</span>[colors[size] <span class="cf">for</span> size <span class="kw">in</span> size_counts_sorted.index])</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add labels and title</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    plt.title(prepare_persian_text(<span class="st">'توزیع اندازه شرکت'</span>))</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(prepare_persian_text(<span class="st">'اندازه شرکت'</span>))</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(prepare_persian_text(<span class="st">'تعداد'</span>))</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the counts above each bar and adjust y-axis limits</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    max_count <span class="op">=</span> <span class="bu">max</span>(size_counts_sorted.values)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="dv">0</span>, max_count <span class="op">*</span> <span class="fl">1.1</span>)  <span class="co"># Increase y-axis limit by 10% to accommodate annotations</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, count <span class="kw">in</span> <span class="bu">enumerate</span>(size_counts_sorted.values):</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>        plt.text(size_counts_sorted.index[i], count <span class="op">+</span> max_count <span class="op">*</span> <span class="fl">0.02</span>, <span class="bu">str</span>(<span class="bu">int</span>(count)), ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>)  <span class="co"># Adjust vertical position as a fraction of max_count</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change x-axis labels</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    plt.xticks(size_counts_sorted.index, x_labels, rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Show the plot</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="part04_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="4776aab9-64bb-4276-b433-e12d4cd903f5" class="cell" data-execution_count="57">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the column exists</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'اندازه شرکت:'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: The column 'اندازه شرکت:' does not exist in the excel file."</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the desired order of company sizes with the combined category</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    ordered_sizes <span class="op">=</span> [</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۵۰ نفر'</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۵۱ تا ۲۰۰ نفر'</span>,  <span class="co"># Combined category</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۰۰ تا ۵۰۰ نفر'</span>,</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بیش از ۵۰۰ نفر'</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a mapping from the original size values to the desired order</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    size_mapping <span class="op">=</span> {</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        size: <span class="st">'۵۱ تا ۲۰۰ نفر'</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> size <span class="kw">in</span> df[<span class="st">'اندازه شرکت:'</span>].unique()</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'۵۱ تا ۱۰۰ نفر'</span> <span class="kw">in</span> size <span class="kw">or</span> <span class="st">'۱۰۱ تا ۲۰۰ نفر'</span> <span class="kw">in</span> size</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    size_mapping.update({</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        size: size</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> size <span class="kw">in</span> df[<span class="st">'اندازه شرکت:'</span>].unique()</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'کمتر از ۵۰ نفر'</span> <span class="kw">in</span> size <span class="kw">or</span> <span class="st">'۲۰۰ تا ۵۰۰ نفر'</span> <span class="kw">in</span> size <span class="kw">or</span> <span class="st">'بیش از ۵۰۰ نفر'</span> <span class="kw">in</span> size</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a categorical column for sorting</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    categorical_size <span class="op">=</span> pd.Categorical(df[<span class="st">'اندازه شرکت:'</span>].<span class="bu">map</span>(size_mapping), categories<span class="op">=</span>ordered_sizes, ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    df_sorted <span class="op">=</span> df.assign(sorted_size<span class="op">=</span>categorical_size).sort_values(<span class="st">'sorted_size'</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the unique company sizes in the sorted order</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    unique_sizes_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_size'</span>].unique()</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count the occurrences of each company size in the sorted order</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    size_counts_sorted <span class="op">=</span> df_sorted[<span class="st">'sorted_size'</span>].value_counts().reindex(ordered_sizes).fillna(<span class="dv">0</span>)</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    size_color_mapping <span class="op">=</span> {</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">'کمتر از ۵۰ نفر'</span>: COLORS[<span class="st">'primary'</span>],</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۵۱ تا ۲۰۰ نفر'</span>: COLORS[<span class="st">'success'</span>],</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">'۲۰۰ تا ۵۰۰ نفر'</span>: COLORS[<span class="st">'warning'</span>],</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">'بیش از ۵۰۰ نفر'</span>: COLORS[<span class="st">'danger'</span>]</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> {size: size_color_mapping.get(size, COLORS[<span class="st">'dark'</span>]) <span class="cf">for</span> size <span class="kw">in</span> unique_sizes_sorted} <span class="co"># Use 'dark' as a fallback</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define new labels (using the desired order)</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    x_labels <span class="op">=</span> [prepare_persian_text(size) <span class="cf">for</span> size <span class="kw">in</span> size_counts_sorted.index]</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the bar chart</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    plt.bar(size_counts_sorted.index, size_counts_sorted.values, color<span class="op">=</span>[colors[size] <span class="cf">for</span> size <span class="kw">in</span> size_counts_sorted.index])</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add labels and title</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    plt.title(prepare_persian_text(<span class="st">'توزیع اندازه شرکت'</span>))</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(prepare_persian_text(<span class="st">'اندازه شرکت'</span>))</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(prepare_persian_text(<span class="st">'تعداد'</span>))</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the counts above each bar and adjust y-axis limits</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    max_count <span class="op">=</span> <span class="bu">max</span>(size_counts_sorted.values)</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="dv">0</span>, max_count <span class="op">*</span> <span class="fl">1.1</span>)  <span class="co"># Increase y-axis limit by 10% to accommodate annotations</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, count <span class="kw">in</span> <span class="bu">enumerate</span>(size_counts_sorted.values):</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        plt.text(size_counts_sorted.index[i], count <span class="op">+</span> max_count <span class="op">*</span> <span class="fl">0.02</span>, <span class="bu">str</span>(<span class="bu">int</span>(count)), ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>)  <span class="co"># Adjust vertical position as a fraction of max_count</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change x-axis labels</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    plt.xticks(size_counts_sorted.index, x_labels, rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Show the plot</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="part04_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
