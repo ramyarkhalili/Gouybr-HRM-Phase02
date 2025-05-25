@@ -45,3 +45,37 @@ td {
 .sourceCode{
     direction: ltr;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #444;
+  }
+
+
+  tr:hover {
+  background-color: #292929; /* Slightly lighter on hover */
+  }
+
+
+  /* Responsive adjustments (example) */
+  @media screen and (max-width: 600px) {
+  th, td {
+  padding: 8px;
+  font-size: 0.9em;
+  }
+  }
+
+  /* Success color for hover */
+  tr:hover {
+  background-color: #28a745; /* Bootstrap's success color (green) */
+  color: #fff; /* Ensure text is readable on the green background */
+  }
+
+  th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #333; /* Darker border */
+  color: #fff;
+  }
