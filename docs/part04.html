@@ -315,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="مقدمه" class="level2">
 <h2 class="anchored" data-anchor-id="مقدمه">مقدمه</h2>
 <p>پرسش‌نامه‌ها در سایت پرس‌لاین ساخته شد و به طور آنلاین بر اساس جمعیت نمونه در اختیار مشارکت‌کنندگان قرار گرفت. با اضافه شدن هر پاسخ، از طریق API پرس‌لاین فایل داده‌ها به صورت روزانه دانلود می‌شود و بر اساس آن جدول‌ها و نمودارهای آماری تولید می‌گردند.</p>
-<div id="d7cf97d8-8a3c-4046-af7d-4fda09b2b49b" class="cell" data-execution_count="61">
+<div id="d7cf97d8-8a3c-4046-af7d-4fda09b2b49b" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># imports and functions</span></span>
@@ -918,24 +918,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="c87b16b1-34ea-46a0-87dd-c430aba8ae5c" class="cell" data-execution_count="3">
+<div id="c87b16b1-34ea-46a0-87dd-c430aba8ae5c" class="cell" data-execution_count="68">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">plot_responses_by_category(df, df[QUESTIONS[0]], df[QUESTIONS[42]],title= "سوال و جنس", ordered_list=section6_answer_order)</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">plot_responses_by_category(df, df[QUESTIONS[10]], df[QUESTIONS[20]],title= "جسم و سایز شرکت",</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">                           ordered_list=section3_answer_order,category_sort=ordered_company_sizes,</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">                          xlabel= "اندازه شرکت", ylabel="تعداد")</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">plot_responses_by_category(df, df[QUESTIONS[1]], df['score_section_2'],title= "امتیاز بخش ۲ و سن",</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">                           category_sort=ordered_ages,</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">                          xlabel= "سن", ylabel="امتیاز بخش")</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot_responses_by_category(df, df[QUESTIONS[0]], df[QUESTIONS[42]],title= "سوال و جنس", ordered_list=section6_answer_order)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#plot_responses_by_category(df, df[QUESTIONS[10]], df[QUESTIONS[20]],title= "جسم و سایز شرکت",</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                           ordered_list=section3_answer_order,category_sort=ordered_company_sizes,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                          xlabel= "اندازه شرکت", ylabel="تعداد")</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#plot_responses_by_category(df, df[QUESTIONS[1]], df['score_section_2'],title= "امتیاز بخش ۲ و سن",</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                           category_sort=ordered_ages,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#                          xlabel= "سن", ylabel="امتیاز بخش")</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>'\nplot_responses_by_category(df, df[QUESTIONS[0]], df[QUESTIONS[42]],title= "سوال و جنس", ordered_list=section6_answer_order)\nplot_responses_by_category(df, df[QUESTIONS[10]], df[QUESTIONS[20]],title= "جسم و سایز شرکت",\n                           ordered_list=section3_answer_order,category_sort=ordered_company_sizes,\n                          xlabel= "اندازه شرکت", ylabel="تعداد")\n\nplot_responses_by_category(df, df[QUESTIONS[1]], df[\'score_section_2\'],title= "امتیاز بخش ۲ و سن",\n                           category_sort=ordered_ages,\n                          xlabel= "سن", ylabel="امتیاز بخش")\n'</code></pre>
 </div>
 </div>
@@ -1289,7 +1287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="پراکندگی-نقشها-بر-حسب-جنس" class="level3">
 <h3 class="anchored" data-anchor-id="پراکندگی-نقشها-بر-حسب-جنس">پراکندگی نقش‌ها بر حسب جنس</h3>
-<div id="2451bff1-6734-469d-9c6c-651cbc2f8c67" class="cell" data-execution_count="62">
+<div id="2451bff1-6734-469d-9c6c-651cbc2f8c67" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">0</span>]], df[QUESTIONS[<span class="dv">9</span>]],title<span class="op">=</span> <span class="st">"پراکندگی نقش‌ها بر حسب جنس"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1563,7 +1561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="امکان-ایفای-دیگر-نقشها-و-مسئولیتها-بر-حسب-جنس" class="level3">
 <h3 class="anchored" data-anchor-id="امکان-ایفای-دیگر-نقشها-و-مسئولیتها-بر-حسب-جنس">امکان ایفای دیگر نقش‌ها و مسئولیت‌ها بر حسب جنس</h3>
-<div id="eddd5dd3-b71e-46e6-a182-9ff9dd3e494e" class="cell" data-execution_count="63">
+<div id="eddd5dd3-b71e-46e6-a182-9ff9dd3e494e" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">0</span>]], df[QUESTIONS[<span class="dv">22</span>]],title<span class="op">=</span> <span class="st">"امکان ایفای دیگر نقش‌ها و مسئولیت‌ها بر حسب جنس"</span>,</span>
@@ -1580,7 +1578,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اهمیت-سلامت-جسمی-کارکنان-برای-شرکت-بر-حسب-اندازه-شرکت" class="level3">
 <h3 class="anchored" data-anchor-id="اهمیت-سلامت-جسمی-کارکنان-برای-شرکت-بر-حسب-اندازه-شرکت">اهمیت سلامت جسمی کارکنان برای شرکت بر حسب اندازه شرکت</h3>
-<div id="f63e9302-84d3-4aa8-988c-1e4940913968" class="cell" data-execution_count="65">
+<div id="f63e9302-84d3-4aa8-988c-1e4940913968" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">10</span>]], df[QUESTIONS[<span class="dv">20</span>]],title<span class="op">=</span> <span class="st">"اهمیت سلامت جسمی کارکنان برای شرکت بر حسب اندازه شرکت"</span>,</span>
@@ -1597,7 +1595,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اهمیت-سلامت-روان-کارکنان-برای-شرکت-بر-حسب-اندازه-شرکت" class="level3">
 <h3 class="anchored" data-anchor-id="اهمیت-سلامت-روان-کارکنان-برای-شرکت-بر-حسب-اندازه-شرکت">اهمیت سلامت روان کارکنان برای شرکت بر حسب اندازه شرکت</h3>
-<div id="35a150a6-56d6-4062-bab9-18bbbc1359a9" class="cell" data-execution_count="66">
+<div id="35a150a6-56d6-4062-bab9-18bbbc1359a9" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">10</span>]], df[QUESTIONS[<span class="dv">21</span>]],title<span class="op">=</span> <span class="st">"اهمیت سلامت روان کارکنان برای شرکت بر حسب اندازه شرکت"</span>,</span>
@@ -1614,7 +1612,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="تعادل-کار-و-زندگی-با-سایز-شرکت" class="level3">
 <h3 class="anchored" data-anchor-id="تعادل-کار-و-زندگی-با-سایز-شرکت">تعادل کار و زندگی با سایز شرکت</h3>
-<div id="2d31273c-9b2b-4fc8-86aa-26ac1d62e6f2" class="cell" data-execution_count="68">
+<div id="2d31273c-9b2b-4fc8-86aa-26ac1d62e6f2" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">10</span>]], df[QUESTIONS[<span class="dv">23</span>]],title<span class="op">=</span> <span class="st">"رضایت کارکنان از سیاست‌ها و برنامه‌های شرکت‌ برای حفظ تعادل کار و زندگی بر حسب اندازه شرکت"</span>,</span>
@@ -1635,7 +1633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>برخلاف بخش‌های پیشین که مشارکت‌کنندگان که توزیع نسبتا متعادلی میان مخالف و موافق داشتند، تعداد ناراضیان از حقوق و مزایا بسیار بیشتر است. عموم مشارکت‌کنندگان نه تنها از حقوق و مزایای خود رضایت ندارند، بلکه آن را در مقایسه با دیگر شرکت‌ها رقابتی نمی‌دانند و توزیع آن را نیز عادلانه و منصفانه نمی‌بینند. به باور آنان، حقوق و مزایایی که می‌گیرند نسبت به اهمیت کاری که انجام می‌دهند منصفانه نیست.</p>
 <section id="از-میزان-حقوق-و-مزایای-دریافتی-خود-رضایت-دارم." class="level3">
 <h3 class="anchored" data-anchor-id="از-میزان-حقوق-و-مزایای-دریافتی-خود-رضایت-دارم.">از میزان حقوق و مزایای دریافتی خود رضایت دارم.</h3>
-<div id="6f2a1961" class="cell" data-execution_count="26">
+<div id="6f2a1961" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_4_questions[<span class="dv">0</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'از میزان حقوق و مزایای دریافتی خود رضایت دارم.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1651,7 +1649,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="حقوق-من-در-این-شرکت-در-مقایسه-با-دیگر-شرکتها-رقابتی-است." class="level3">
 <h3 class="anchored" data-anchor-id="حقوق-من-در-این-شرکت-در-مقایسه-با-دیگر-شرکتها-رقابتی-است.">حقوق من در این شرکت در مقایسه با دیگر شرکت‌ها رقابتی است.</h3>
-<div id="90e198d5" class="cell" data-execution_count="27">
+<div id="90e198d5" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_4_questions[<span class="dv">1</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'حقوق من در این شرکت در مقایسه با دیگر شرکت‌ها رقابتی است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1667,7 +1665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="مزایای-جانبی-شرکت-بیمه-پاداش-مرخصی-و-از-کیفیت-کافی-برخوردار-است." class="level3">
 <h3 class="anchored" data-anchor-id="مزایای-جانبی-شرکت-بیمه-پاداش-مرخصی-و-از-کیفیت-کافی-برخوردار-است.">مزایای جانبی شرکت (بیمه، پاداش، مرخصی و …) از کیفیت کافی برخوردار است.</h3>
-<div id="9e7c84a3" class="cell" data-execution_count="28">
+<div id="9e7c84a3" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_4_questions[<span class="dv">2</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'مزایای جانبی شرکت (بیمه، پاداش، مرخصی و ...) از کیفیت کافی برخوردار است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1683,7 +1681,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="توزیع-دستمزد-در-سازمان-ما-عادلانه-است." class="level3">
 <h3 class="anchored" data-anchor-id="توزیع-دستمزد-در-سازمان-ما-عادلانه-است.">توزیع دستمزد در سازمان ما عادلانه است.</h3>
-<div id="67512e37" class="cell" data-execution_count="29">
+<div id="67512e37" class="cell" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_4_questions[<span class="dv">3</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'توزیع دستمزد در سازمان ما عادلانه است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1699,7 +1697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="حقوق-و-مزایای-من-با-توجه-به-میزان-کارم-منصفانه-است." class="level3">
 <h3 class="anchored" data-anchor-id="حقوق-و-مزایای-من-با-توجه-به-میزان-کارم-منصفانه-است.">حقوق و مزایای من با توجه به میزان کارم منصفانه است.</h3>
-<div id="be9a9052" class="cell" data-execution_count="30">
+<div id="be9a9052" class="cell" data-execution_count="34">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_4_questions[<span class="dv">4</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'حقوق و مزایای من با توجه به میزان کارم منصفانه است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1715,7 +1713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="حقوق-و-مزایای-من-با-توجه-به-اهمیت-کارم-منصفانه-است." class="level3">
 <h3 class="anchored" data-anchor-id="حقوق-و-مزایای-من-با-توجه-به-اهمیت-کارم-منصفانه-است.">حقوق و مزایای من با توجه به اهمیت کارم منصفانه است.</h3>
-<div id="f1f9f54f" class="cell" data-execution_count="31">
+<div id="f1f9f54f" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_4_questions[<span class="dv">5</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'حقوق و مزایای من با توجه به اهمیت کارم منصفانه است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1741,7 +1739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>در این بخش با استفاده از چهار سنجه، نظر مشارکت‌کنندگان نسبت به فرصت‌هایی که شرکت برای ارتقای شغلی و یادگیری در اختیار آنان قرار می‌دهد سنجیده شده است. پاسخ‌ها نشان می‌دهد که بیشترین نارضایتی در این بخش، مربوط به <strong>مسیرهای ارتقای شغلی</strong> است که مشارکت‌کنندکان رأی به <strong>عدم شفافیت مسیرهای</strong> آن داده‌اند. رأی مشارکت‌کنندگان درباره فرصت‌های یادگیری در شرکت، نسبتا متعادل و مثبت است؛ به ویژه ارزیابی‌شان از امکان یادگیری از همکاران و مدیرانشان. همین طور فرصت‌های کافی برای رشد حرفه‌ای برایشان وجود دارد.</p>
 <section id="مسیرهای-روشن-و-مشخصی-برای-ارتقاء-شغلی-در-سازمان-وجود-دارد." class="level3">
 <h3 class="anchored" data-anchor-id="مسیرهای-روشن-و-مشخصی-برای-ارتقاء-شغلی-در-سازمان-وجود-دارد.">مسیرهای روشن و مشخصی برای ارتقاء شغلی در سازمان وجود دارد.</h3>
-<div id="b4cd5544" class="cell" data-execution_count="32">
+<div id="b4cd5544" class="cell" data-execution_count="36">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_5_questions[<span class="dv">0</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'مسیرهای روشن و مشخصی برای ارتقاء شغلی در سازمان وجود دارد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1757,7 +1755,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="من-از-برنامههای-آموزشی-و-توسعه-مهارتها-در-شرکت-بهرهمند-شدهام." class="level3">
 <h3 class="anchored" data-anchor-id="من-از-برنامههای-آموزشی-و-توسعه-مهارتها-در-شرکت-بهرهمند-شدهام.">من از برنامه‌های آموزشی و توسعه مهارت‌ها در شرکت بهره‌مند شده‌ام.</h3>
-<div id="90e22441" class="cell" data-execution_count="33">
+<div id="90e22441" class="cell" data-execution_count="37">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_5_questions[<span class="dv">1</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'من از برنامه‌های آموزشی و توسعه مهارت‌ها در شرکت بهره‌مند شده‌ام.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1773,7 +1771,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="فرصتهای-کافی-برای-یادگیری-و-رشد-حرفهای-در-شرکت-وجود-دارد." class="level3">
 <h3 class="anchored" data-anchor-id="فرصتهای-کافی-برای-یادگیری-و-رشد-حرفهای-در-شرکت-وجود-دارد.">فرصت‌های کافی برای یادگیری و رشد حرفه‌ای در شرکت وجود دارد.</h3>
-<div id="a236714d" class="cell" data-execution_count="34">
+<div id="a236714d" class="cell" data-execution_count="38">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_5_questions[<span class="dv">2</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'فرصت‌های کافی برای یادگیری و رشد حرفه‌ای در شرکت وجود دارد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1789,7 +1787,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="امکان-یادگیری-از-همکاران-و-مدیران-در-شرکت-وجود-دارد." class="level3">
 <h3 class="anchored" data-anchor-id="امکان-یادگیری-از-همکاران-و-مدیران-در-شرکت-وجود-دارد.">امکان یادگیری از همکاران و مدیران در شرکت وجود دارد.</h3>
-<div id="12191f58" class="cell" data-execution_count="35">
+<div id="12191f58" class="cell" data-execution_count="39">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_5_questions[<span class="dv">3</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'امکان یادگیری از همکاران و مدیران در شرکت وجود دارد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1808,7 +1806,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="مسیرهای-روشن-و-مشخص-رشد-و-ارتقا-بر-حسب-اندازه-شرکت" class="level3">
 <h3 class="anchored" data-anchor-id="مسیرهای-روشن-و-مشخص-رشد-و-ارتقا-بر-حسب-اندازه-شرکت">مسیرهای روشن و مشخص رشد و ارتقا بر حسب اندازه شرکت</h3>
-<div id="6278800e-05f6-4360-bad3-0b4d54bd8bc4" class="cell" data-execution_count="69">
+<div id="6278800e-05f6-4360-bad3-0b4d54bd8bc4" class="cell" data-execution_count="40">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">10</span>]], df[QUESTIONS[<span class="dv">32</span>]],title<span class="op">=</span> <span class="st">"مسیرهای روشن و مشخص رشد و ارتقا بر حسب اندازه شرکت"</span>,</span>
@@ -1829,7 +1827,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>در این بخش با بهره‌گیری از شش سنجه نظر مشارکت‌کنندگان در ارتباط با میزان احساس امنیت و هم‌خوانی ارزشی و رفتاری با سازمان سنجیده شده است. در حالی که رضایت از فرهنگ سازمان و ارزش‌های شرکت مشارکت‌کنندگان را به دو گروه موافق و مخالف تقسیم می‌کند، اکثریت مشارکت‌کنندگان اظهار کرده‌اند که شرکت آن‌ها را همان طور که هستند می‌پذیرد و محیط کارشان صمیمی و مشارکت‌محور است. هر چند که به نظر نمی‌رسد افراد احساس کنند سازمان برای کنترل رفتار ناسالم (بین فردی و سازمانی) ساز و کارهای موثری داشته باشد.</p>
 <section id="از-فرهنگ-سازمانی-و-ارزشهای-شرکت-رضایت-دارم." class="level3">
 <h3 class="anchored" data-anchor-id="از-فرهنگ-سازمانی-و-ارزشهای-شرکت-رضایت-دارم.">از فرهنگ سازمانی و ارزش‌های شرکت رضایت دارم.</h3>
-<div id="e6b17328" class="cell" data-execution_count="36">
+<div id="e6b17328" class="cell" data-execution_count="41">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>temp_order <span class="op">=</span> [</span>
@@ -1860,7 +1858,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="شرکت-مرا-همانطور-که-هستم-می-پذیرد." class="level3">
 <h3 class="anchored" data-anchor-id="شرکت-مرا-همانطور-که-هستم-می-پذیرد.">شرکت مرا همانطور که هستم می پذیرد.</h3>
-<div id="877260b6" class="cell" data-execution_count="37">
+<div id="877260b6" class="cell" data-execution_count="42">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_6_questions[<span class="dv">1</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'شرکت مرا همانطور که هستم می پذیرد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1876,7 +1874,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="محیط-کار-من-صمیمی-و-مشارکتمحور-است." class="level3">
 <h3 class="anchored" data-anchor-id="محیط-کار-من-صمیمی-و-مشارکتمحور-است.">محیط کار من صمیمی و مشارکت‌محور است.</h3>
-<div id="173171fb" class="cell" data-execution_count="38">
+<div id="173171fb" class="cell" data-execution_count="43">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_6_questions[<span class="dv">2</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'محیط کار من صمیمی و مشارکت‌محور است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1892,7 +1890,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="در-این-سازمان-امنیت-شغلی-دارم." class="level3">
 <h3 class="anchored" data-anchor-id="در-این-سازمان-امنیت-شغلی-دارم.">در این سازمان&nbsp; امنیت شغلی دارم.</h3>
-<div id="705ec5ea" class="cell" data-execution_count="39">
+<div id="705ec5ea" class="cell" data-execution_count="44">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_6_questions[<span class="dv">3</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'در این سازمان&nbsp; امنیت شغلی دارم.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1908,7 +1906,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="سازوکار-کارآمدی-برای-کنترل-رفتارهای-ناسالم-سازمانی-رقابت-ناسالم-خبرچینی-تخریب-وجهه-همکاران-و-در-سازمان-ما-وجود-دارد." class="level3">
 <h3 class="anchored" data-anchor-id="سازوکار-کارآمدی-برای-کنترل-رفتارهای-ناسالم-سازمانی-رقابت-ناسالم-خبرچینی-تخریب-وجهه-همکاران-و-در-سازمان-ما-وجود-دارد.">سازوکار کارآمدی برای کنترل رفتارهای ناسالم سازمانی (رقابت ناسالم، خبرچینی، تخریب وجهه همکاران و…) در سازمان ما وجود دارد.</h3>
-<div id="6d933300" class="cell" data-execution_count="40">
+<div id="6d933300" class="cell" data-execution_count="45">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_6_questions[<span class="dv">4</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'سازوکار کارآمدی برای کنترل رفتارهای ناسالم سازمانی (رقابت ناسالم، خبرچینی، تخریب وجهه همکاران و...) در سازمان ما وجود دارد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1924,7 +1922,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="سازوکار-کارآمدی-برای-کنترل-رفتارهای-ناسالم-بین-فردی-انواع-آزار-محیط-کار-از-قبیل-آزار-جنسی-یا-سوء-استفاده-از-قدرت-در-سازمان-ما-وجود-دارد." class="level3">
 <h3 class="anchored" data-anchor-id="سازوکار-کارآمدی-برای-کنترل-رفتارهای-ناسالم-بین-فردی-انواع-آزار-محیط-کار-از-قبیل-آزار-جنسی-یا-سوء-استفاده-از-قدرت-در-سازمان-ما-وجود-دارد.">سازوکار کارآمدی برای کنترل رفتارهای ناسالم بین فردی (انواع آزار محیط کار از قبیل آزار جنسی یا سوء استفاده از قدرت) در سازمان ما وجود دارد.</h3>
-<div id="ef58ac1d" class="cell" data-execution_count="41">
+<div id="ef58ac1d" class="cell" data-execution_count="46">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_6_questions[<span class="dv">5</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'سازوکار کارآمدی برای کنترل رفتارهای ناسالم بین فردی (انواع آزار محیط کار از قبیل آزار جنسی یا سوء استفاده از قدرت) در سازمان ما وجود دارد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1943,7 +1941,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="ارزشهای-شرکت-و-جنس" class="level3">
 <h3 class="anchored" data-anchor-id="ارزشهای-شرکت-و-جنس">ارزش‌های شرکت و جنس</h3>
-<div id="f421f648-b583-4ea6-805f-8993c3c16838" class="cell" data-execution_count="71">
+<div id="f421f648-b583-4ea6-805f-8993c3c16838" class="cell" data-execution_count="47">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">0</span>]], df[QUESTIONS[<span class="dv">37</span>]],title<span class="op">=</span> <span class="st">"رضایت از فرهنگ و ارزش‌های شرکت بر حسب جنس"</span>,</span>
@@ -1960,7 +1958,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-سازمانی-بر-حسب-جنس" class="level3">
 <h3 class="anchored" data-anchor-id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-سازمانی-بر-حسب-جنس">وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم سازمانی بر حسب جنس</h3>
-<div id="42b2f2b3-9208-46d3-a1da-55ccd6d45ab6" class="cell" data-execution_count="73">
+<div id="42b2f2b3-9208-46d3-a1da-55ccd6d45ab6" class="cell" data-execution_count="48">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">0</span>]], df[QUESTIONS[<span class="dv">41</span>]],title<span class="op">=</span> <span class="st">"وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم سازمانی بر حسب جنس"</span>,</span>
@@ -1977,7 +1975,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-سازمانی-بر-حسب-اندازه-شرکت" class="level3">
 <h3 class="anchored" data-anchor-id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-سازمانی-بر-حسب-اندازه-شرکت">وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم سازمانی بر حسب اندازه شرکت</h3>
-<div id="622d5ec0-0004-4976-a2fe-9ae5a27d933f" class="cell" data-execution_count="76">
+<div id="622d5ec0-0004-4976-a2fe-9ae5a27d933f" class="cell" data-execution_count="49">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">10</span>]], df[QUESTIONS[<span class="dv">41</span>]],title<span class="op">=</span> <span class="st">"وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم سازمانی بر حسب اندازه شرکت"</span>,</span>
@@ -1994,7 +1992,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-بین-فردی-بر-حسب-جنس" class="level3">
 <h3 class="anchored" data-anchor-id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-بین-فردی-بر-حسب-جنس">وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم بین فردی بر حسب جنس</h3>
-<div id="0df22fe8-c80f-489b-9069-065ed379c82d" class="cell" data-execution_count="74">
+<div id="0df22fe8-c80f-489b-9069-065ed379c82d" class="cell" data-execution_count="50">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">0</span>]], df[QUESTIONS[<span class="dv">42</span>]],title<span class="op">=</span> <span class="st">"وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم بین فردی بر حسب جنس"</span>,</span>
@@ -2011,7 +2009,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-بین-فردی-بر-حسب-اندازه-شرکت" class="level3">
 <h3 class="anchored" data-anchor-id="وجود-ساز-و-کار-کارآمد-برای-کنترل-رفتارهای-ناسالم-بین-فردی-بر-حسب-اندازه-شرکت">وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم بین فردی بر حسب اندازه شرکت</h3>
-<div id="83faa6b1-82f9-410b-bf08-0924e4dd6d7c" class="cell" data-execution_count="77">
+<div id="83faa6b1-82f9-410b-bf08-0924e4dd6d7c" class="cell" data-execution_count="51">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>plot_responses_by_category(df, df[QUESTIONS[<span class="dv">10</span>]], df[QUESTIONS[<span class="dv">42</span>]],title<span class="op">=</span> <span class="st">"وجود ساز و کار کارآمد برای کنترل رفتارهای ناسالم بین فردی بر حسب اندازه شرکت"</span>,</span>
@@ -2032,7 +2030,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>در این بخش با استفاده از ۴ سنجه نظر مشارکت‌کنندگان درباره عمل‌کرد مدیرانشان پرسیده شده است. در مجموع به نظر می‌رسد مشارکت‌کنندگان از عمل‌کرد مدیران خود راضی هستند هرچند بیشتر آنان گزینه محافظه‌کارانه <em>تاحدودی</em> را ترجیح داده‌اند. در مورد شفاف و منطقی بودن تصمیم‌‌گیری‌های مدیران، مخالفت‌ها بیشتر از دیگر سنجه‌هاست.</p>
 <section id="از-حمایت-و-راهنماییهای-مدیر-مستقیم-خود-رضایت-دارم." class="level3">
 <h3 class="anchored" data-anchor-id="از-حمایت-و-راهنماییهای-مدیر-مستقیم-خود-رضایت-دارم.">از حمایت و راهنمایی‌های مدیر مستقیم خود رضایت دارم.</h3>
-<div id="73f13855" class="cell" data-execution_count="42">
+<div id="73f13855" class="cell" data-execution_count="52">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_7_questions[<span class="dv">0</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'از حمایت و راهنمایی‌های مدیر مستقیم خود رضایت دارم.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2048,7 +2046,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="مدیران-بازخوردهای-من-را-میشنوند-و-به-آنها-عمل-میکنند." class="level3">
 <h3 class="anchored" data-anchor-id="مدیران-بازخوردهای-من-را-میشنوند-و-به-آنها-عمل-میکنند.">مدیران بازخوردهای من را می‌شنوند و به آن‌ها عمل می‌کنند.</h3>
-<div id="5adca4ef" class="cell" data-scrolled="true" data-execution_count="43">
+<div id="5adca4ef" class="cell" data-scrolled="true" data-execution_count="53">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_7_questions[<span class="dv">1</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'مدیران بازخوردهای من را می‌شنوند و به آن‌ها عمل می‌کنند.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2064,7 +2062,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="تصمیمگیریهای-مدیران-برای-من-شفاف-و-منطقی-است." class="level3">
 <h3 class="anchored" data-anchor-id="تصمیمگیریهای-مدیران-برای-من-شفاف-و-منطقی-است.">تصمیم‌گیری‌های مدیران برای من شفاف و منطقی است.</h3>
-<div id="4ca3340e" class="cell" data-execution_count="44">
+<div id="4ca3340e" class="cell" data-execution_count="54">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_7_questions[<span class="dv">2</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'تصمیم‌گیری‌های مدیران برای من شفاف و منطقی است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2080,7 +2078,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اعتبار-و-تشویق-کاری-که-انجام-میدهم-به-خودم-نه-به-مدیر-مافوقم-میرسد." class="level3">
 <h3 class="anchored" data-anchor-id="اعتبار-و-تشویق-کاری-که-انجام-میدهم-به-خودم-نه-به-مدیر-مافوقم-میرسد.">اعتبار و تشویق کاری که انجام می‌دهم به خودم (نه به مدیر مافوقم) می‌رسد.</h3>
-<div id="ee006f2c" class="cell" data-execution_count="45">
+<div id="ee006f2c" class="cell" data-execution_count="55">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_7_questions[<span class="dv">3</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'اعتبار و تشویق کاری که انجام می‌دهم به خودم (نه به مدیر مافوقم) می‌رسد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2106,7 +2104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>در این بخش دیدگاه‌های کلان مشارکت‌کنندگان به ویژه در حوزه فناوری اطلاعات، با بهره‌گیری از پنج سنجه، سنجیده شده است. مشارکت‌کنندگان اگر شرکت‌های خود را در حوزه فناوری اطلاعات پیشرو می‌دانند، اما پیاده‌سازی فناوری‌های جدید را متوسط ارزیابی می‌کنند. رویکرد آن‌ها در ارتباط با روشن بودن استراتژی‌ها، انعطاف‌پذیری شرکت و اختصاص منابع و بودجه برای رسیدن به اهداف استراتژیک بدبینانه‌تر است. در این بخش هم مانند بخش‌های قبلی، استراتژی‌ها و اهداف کلی شرکت برای مشارکت‌کنندگان روشن نیست.</p>
 <section id="شرکت-ما-در-حوزه-it-پیشرو-است." class="level3">
 <h3 class="anchored" data-anchor-id="شرکت-ما-در-حوزه-it-پیشرو-است.">شرکت ما در حوزه IT پیشرو است.</h3>
-<div id="5aa44b74" class="cell" data-execution_count="46">
+<div id="5aa44b74" class="cell" data-execution_count="56">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_8_questions[<span class="dv">0</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'شرکت ما در حوزه IT پیشرو است.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2122,7 +2120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="شرکت-نوآوریها-و-فناوریهای-جدید-را-به-خوبی-پیادهسازی-میکند." class="level3">
 <h3 class="anchored" data-anchor-id="شرکت-نوآوریها-و-فناوریهای-جدید-را-به-خوبی-پیادهسازی-میکند.">شرکت نوآوری‌ها و فناوری‌های جدید را به خوبی پیاده‌سازی می‌کند.</h3>
-<div id="1bf6b4a7" class="cell" data-execution_count="47">
+<div id="1bf6b4a7" class="cell" data-execution_count="57">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_8_questions[<span class="dv">1</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'شرکت نوآوری‌ها و فناوری‌های جدید را به خوبی پیاده‌سازی می‌کند.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2138,7 +2136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="استراتژیها-و-اهداف-کلی-شرکت-برای-من-روشن-هستند." class="level3">
 <h3 class="anchored" data-anchor-id="استراتژیها-و-اهداف-کلی-شرکت-برای-من-روشن-هستند.">استراتژی‌ها و اهداف کلی شرکت برای من روشن هستند.</h3>
-<div id="347a043a" class="cell" data-execution_count="48">
+<div id="347a043a" class="cell" data-execution_count="58">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_8_questions[<span class="dv">2</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'استراتژی‌ها و اهداف کلی شرکت برای من روشن هستند.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2154,7 +2152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="شرکت-در-مواجهه-با-تغییرات-فناوری-و-نیازهای-بازار-انعطافپذیری-مطلوبی-دارد." class="level3">
 <h3 class="anchored" data-anchor-id="شرکت-در-مواجهه-با-تغییرات-فناوری-و-نیازهای-بازار-انعطافپذیری-مطلوبی-دارد.">شرکت در مواجهه با تغییرات فناوری و نیازهای بازار انعطاف‌پذیری مطلوبی دارد.</h3>
-<div id="a735230b" class="cell" data-execution_count="49">
+<div id="a735230b" class="cell" data-execution_count="59">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_8_questions[<span class="dv">3</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'شرکت در مواجهه با تغییرات فناوری و نیازهای بازار انعطاف‌پذیری مطلوبی دارد.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2170,7 +2168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="منابع-و-بودجه-شرکت-به-درستی-برای-دستیابی-به-اهداف-استراتژیک-تخصیص-داده-میشوند." class="level3">
 <h3 class="anchored" data-anchor-id="منابع-و-بودجه-شرکت-به-درستی-برای-دستیابی-به-اهداف-استراتژیک-تخصیص-داده-میشوند.">منابع و بودجه شرکت به درستی برای دستیابی به اهداف استراتژیک تخصیص داده می‌شوند.</h3>
-<div id="43d5d69b" class="cell" data-execution_count="50">
+<div id="43d5d69b" class="cell" data-execution_count="60">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_8_questions[<span class="dv">4</span>],temp_order, temp_colors, title<span class="op">=</span><span class="st">'منابع و بودجه شرکت به درستی برای دستیابی به اهداف استراتژیک تخصیص داده می‌شوند.'</span>, xlabel<span class="op">=</span><span class="st">'میزان موافقت'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2193,7 +2191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>در این بخش اصلی‌ترین موضوع مورد توجه این پژوهش سنجیده شده است، یعنی قصد جابجایی، قصد مهاجرت و عوامل بازدارنده. همان طور که دیده می‌شود، فرصت‌های شغلی جایگزین برای اکثریت مطلق مشارکت‌کنندگان وجود دارد. به نظر می‌رسد جابجایی به شرکت‌های بزرگ‌تر اصلی‌ترین هدف مهاجرت‌های شغلی باشد. علاوه بر این، برخلاف انتظار پژوهش‌گران، مشارکت‌کنندگان تمایل دارند تا در موقعیت شغلی خود باقی بمانند و عامل <strong>حقوق و مزایا</strong> هم در ماندن و هم در رفتن از سازمان نقش اصلی را دارد. اگرچه اکثریت مشارکت‌کنندگان در این پژوهش در دو سال آینده قصد مهاجرت ندارند، اولین عامل ترغیب آنان که می‌خواهند مهاجرت کنند، <strong>بی‌ثباتی اقتصادی ایران</strong> و آخرین عامل <em>مسأله آزادی اجتماعی در ایران</em> است.</p>
 <section id="در-سال-گذشته-پیشنهاد-شغلی-دیگری-داشتهاید" class="level3">
 <h3 class="anchored" data-anchor-id="در-سال-گذشته-پیشنهاد-شغلی-دیگری-داشتهاید">در سال گذشته پیشنهاد شغلی دیگری داشته‌اید؟</h3>
-<div id="94085efd" class="cell" data-execution_count="51">
+<div id="94085efd" class="cell" data-execution_count="61">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>temp_order <span class="op">=</span> [<span class="st">'خیر'</span>, <span class="st">'بله'</span>]</span>
@@ -2216,7 +2214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اگر-از-این-شرکت-بروید-قصد-دارید" class="level3">
 <h3 class="anchored" data-anchor-id="اگر-از-این-شرکت-بروید-قصد-دارید">اگر از این شرکت بروید قصد دارید:</h3>
-<div id="963dda09-2e78-4c0a-b8e0-5b04d3d9d13b" class="cell" data-execution_count="52">
+<div id="963dda09-2e78-4c0a-b8e0-5b04d3d9d13b" class="cell" data-execution_count="62">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>plot_builder(df,section_9_questions[<span class="dv">1</span>], title<span class="op">=</span><span class="st">'اگر از این شرکت بروید قصد دارید:'</span>, xlabel<span class="op">=</span><span class="st">'پاسخ'</span>, ylabel<span class="op">=</span><span class="st">'تعداد'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2232,7 +2230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="آیا-قصد-دارید-تا-دو-سال-آینده-همچنان-در-این-شرکت-بمانید" class="level3">
 <h3 class="anchored" data-anchor-id="آیا-قصد-دارید-تا-دو-سال-آینده-همچنان-در-این-شرکت-بمانید">آیا قصد دارید تا دو سال آینده همچنان در این شرکت بمانید؟</h3>
-<div id="09b6a201-9a98-4b72-9cec-1855bd4a552c" class="cell" data-execution_count="53">
+<div id="09b6a201-9a98-4b72-9cec-1855bd4a552c" class="cell" data-execution_count="63">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>temp_order <span class="op">=</span> [</span>
@@ -2263,7 +2261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اگر-قصد-ماندن-دارید-کدامیک-از-عوامل-زیر-شما-را-به-ماندن-ترغیب-میکند-با-شماره-گذاری-اولویت-بندی-کنید" class="level3">
 <h3 class="anchored" data-anchor-id="اگر-قصد-ماندن-دارید-کدامیک-از-عوامل-زیر-شما-را-به-ماندن-ترغیب-میکند-با-شماره-گذاری-اولویت-بندی-کنید">اگر قصد ماندن دارید کدام‌یک از عوامل زیر شما را به ماندن ترغیب می‌کند؟ (با شماره گذاری اولویت بندی کنید)</h3>
-<div id="7682d154-8a96-4ee8-937b-b788490202ee" class="cell" data-execution_count="54">
+<div id="7682d154-8a96-4ee8-937b-b788490202ee" class="cell" data-execution_count="64">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -2284,7 +2282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اگر-قصد-رفتن-از-سازمان-را-دارید-کدامیک-از-عوامل-زیر-بیشترین-تأثیر-را-بر-تصمیم-شما-دارد" class="level3">
 <h3 class="anchored" data-anchor-id="اگر-قصد-رفتن-از-سازمان-را-دارید-کدامیک-از-عوامل-زیر-بیشترین-تأثیر-را-بر-تصمیم-شما-دارد">اگر قصد رفتن از سازمان را دارید کدام‌یک از عوامل زیر بیش‌ترین تأثیر را بر تصمیم شما دارد؟</h3>
-<div id="9e437e33-5d18-4b8d-beba-42dd29badc70" class="cell" data-execution_count="55">
+<div id="9e437e33-5d18-4b8d-beba-42dd29badc70" class="cell" data-execution_count="65">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>plot_stacked_bar_chart_from_counts(column_elemnt_counter(df,section_9_questions[<span class="dv">4</span>]), </span>
@@ -2304,7 +2302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="آیا-طی-دو-سال-آینده-قصد-مهاجرت-دارید" class="level3">
 <h3 class="anchored" data-anchor-id="آیا-طی-دو-سال-آینده-قصد-مهاجرت-دارید">آیا طی دو سال آینده قصد مهاجرت دارید؟</h3>
-<div id="e1693a81-8947-4d5b-a252-51ebfcec33ba" class="cell" data-execution_count="56">
+<div id="e1693a81-8947-4d5b-a252-51ebfcec33ba" class="cell" data-execution_count="66">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>temp_order <span class="op">=</span> [<span class="st">'خیر'</span>, <span class="st">'بله'</span>]</span>
@@ -2327,7 +2325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="اگر-قصد-مهاجرت-دارید-کدام-یک-از-عوامل-زیر-بیشترین-تأثیر-را-در-تصمیم-شما-دارد" class="level3">
 <h3 class="anchored" data-anchor-id="اگر-قصد-مهاجرت-دارید-کدام-یک-از-عوامل-زیر-بیشترین-تأثیر-را-در-تصمیم-شما-دارد">اگر قصد مهاجرت دارید کدام‌ یک از عوامل زیر بیش‌ترین تأثیر را در تصمیم شما دارد؟</h3>
-<div id="4ab515eb-ef2a-4473-ba5b-f96141037712" class="cell" data-execution_count="57">
+<div id="4ab515eb-ef2a-4473-ba5b-f96141037712" class="cell" data-execution_count="67">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>plot_stacked_bar_chart_from_counts(column_elemnt_counter(df,section_9_questions[<span class="dv">6</span>]), </span>
