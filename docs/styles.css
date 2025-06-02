@@ -79,3 +79,13 @@ table {
   border-bottom: 1px solid #333; /* Darker border */
   color: #fff;
   }
+
+.dropdown-item{
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.list-unstyled{
+    direction: rtl !important;
+    text-align: right !important;
+}
