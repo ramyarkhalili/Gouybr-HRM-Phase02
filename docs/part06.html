@@ -1172,6 +1172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="بخش-۳-تعادل-کار-و-زندگی">بخش ۳: تعادل کار و زندگی</h3>
 <section id="امتیاز-کلی-تعادل-کار-و-زندگی-بر-حسب-جنس" class="level4">
 <h4 class="anchored" data-anchor-id="امتیاز-کلی-تعادل-کار-و-زندگی-بر-حسب-جنس">امتیاز کلی تعادل کار و زندگی بر حسب جنس</h4>
+<p>با توجه به این که اختلاف تعداد زنان و مردان قابل توجه نیست، اختلاف میانگین امتیاز به سنجه تعادل کار و زندگی را می‌توان به نارضایتی بیشتر زنان از این سنجه نسبت داد. یعنی تجربه زنان مشارکت‌کننده از کار، شرایط نامتعادل‌تری نسبت به مردان بوده است. نمودارهای سنی بر نارضایتی عمومی صحه می‌گذارند ولی نمودارهای مربوط به دانشگاه محل تحصیل نشان می‌دهند که فارغ‌التحصیلان دانشگاه‌های مختلف، انتظارهای گوناگونی از تعادل کار و زندگی ندارند. مساله تعادل کار و زندگی در شرکت‌های زیر ۵۰ نفر بهتر از باقی شرکت‌ها ارزیابی شده است و هر چقدر شرکت بزرگ‌تر می‌شود این تعادل به هم می‌خورد؛ در حالی که به طور شهودی باید غیر از این باشد و تقسیم کار در شرکت‌های بزرگ‌تر باید بتواند این تعادل را برقرار کند. اما چنان که از نمودارها پیداست، در شرکت‌های بزرگ نارضایتی از این عامل بسیار زیاد است.</p>
 <div id="82a5d7b9-e09b-4a13-a49a-ede177b7418c" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1272,6 +1273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="بخش-۴-حقوق-و-مزایا" class="level3">
 <h3 class="anchored" data-anchor-id="بخش-۴-حقوق-و-مزایا">بخش ۴: حقوق و مزایا</h3>
+<p>زنان به وضوح از حقوق و مزایای دریافتی خود ناراضی‌تر از مردان هستند. با توجه به تعداد تقریبا برابر زنان و مردان و شکل نمودار، زنان از حقوق و مزایای دریافتی خود بسیار ناراضی‌تر از مردان هستند. همین طور با بالاتر رفتن سن، نارضایتی از حقوق و مزایای دریافتی افزایش می‌یابد. فارغ‌التحصیلان دانشگاه‌های آزاد نسبت به این سنجه ناراضی‌تر از دیگر دانشگاه‌ها هستند و با بزرگ‌تر شدن اندازه شرکت، نارضایتی از حقوق و مزایای دریافتی هم افزایش می‌یابد.</p>
 <section id="امتیاز-کلی-حقوق-و-مزایا-بر-حسب-جنس" class="level4">
 <h4 class="anchored" data-anchor-id="امتیاز-کلی-حقوق-و-مزایا-بر-حسب-جنس">امتیاز کلی حقوق و مزایا بر حسب جنس</h4>
 <div id="4ac15df7-e951-4ac0-9f2f-0c6e1b008b4c" class="cell" data-execution_count="11">
@@ -1324,7 +1326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="امتیاز-کلی-حقوق-و-مزایا-بر-حسب-دانشگاه-محل-تحصیل" class="level4">
 <h4 class="anchored" data-anchor-id="امتیاز-کلی-حقوق-و-مزایا-بر-حسب-دانشگاه-محل-تحصیل">امتیاز کلی حقوق و مزایا بر حسب دانشگاه محل تحصیل</h4>
-<div id="5fe2d1e6-547c-434c-9e62-2df8df65c51e" class="cell" data-execution_count="13">
+<div id="5fe2d1e6-547c-434c-9e62-2df8df65c51e" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plot_score_hist_by_category(</span>
@@ -1332,7 +1334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    QUESTIONS[<span class="dv">5</span>],</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'score_section_4'</span>,</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    bins<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'امتیاز کلی تعادل کار و زندگی بر حسب دانشگاه محل تحصیل'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'امتیاز کلی حقوق و مزایا بر حسب دانشگاه محل تحصیل'</span>,</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    xlabel<span class="op">=</span><span class="st">"نمره"</span>,</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    ylabel<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1374,6 +1376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="بخش-۵-فرصتهای-رشد-و-آموزش" class="level3">
 <h3 class="anchored" data-anchor-id="بخش-۵-فرصتهای-رشد-و-آموزش">بخش ۵: فرصت‌های رشد و آموزش</h3>
+<p>در مورد این سنجه نیز زنان تجربه ناخوشایندتری را گزارش کرده‌اند. یعنی در نظر آنان فرصت‌های رشد و آموزش در کار به قدر کافی فراهم نیست. اگر چه مردان هم از فرصت‌های آموزش و رشدی که در اختیارشان قرار دارد راضی نیستند، اما به نظر می‌رسد که این فرصت‌ها برایشان رضایت بیشتری فراهم می‌کند. رضایت از فرصت‌های رشد و آموزش با بالا رفتن سن کاهش می‌یابد که به خودی خودی لزوما شگفت‌انگیز نیست. زیرا می‌تواند به اشباع جایگاه‌های رشد نیز تعبیر شود. با این حال، کاهش فرصت‌های رشد و آموزش در کنار کاهش رضایت از درآمد همراه با افزایش سن قابل تامل است. باز هم جالب است که با افزایش اندازه شرکت، رضایت از فرصت‌های رشد و آموزش کم می‌شود. گویی هر قدر شرکت‌ها بزرگ‌تر می‌شوند، افراد بر خلاف انتظارشان در جایگاه‌های خود ثابت می‌مانند و آن طور که انتظار دارند رشد نمی‌کنند.</p>
 <section id="امتیاز-کلی-فرصتهای-رشد-و-آموزش" class="level4">
 <h4 class="anchored" data-anchor-id="امتیاز-کلی-فرصتهای-رشد-و-آموزش">امتیاز کلی فرصت‌های رشد و آموزش</h4>
 <div id="f3d88f9e-30c3-47ad-ae7d-e7626946cb07" class="cell" data-execution_count="15">
@@ -1393,7 +1396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1418,7 +1421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1442,7 +1445,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1467,7 +1470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1476,6 +1479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="بخش-۶-فرهنگ-سازمانی-و-محیط-کار" class="level3">
 <h3 class="anchored" data-anchor-id="بخش-۶-فرهنگ-سازمانی-و-محیط-کار">بخش ۶: فرهنگ سازمانی و محیط کار</h3>
+<p>زنان از فرهنگ سازمانی و محیط کار خود رضایت کمتری از مردان دارند. با بالا رفتن سن هم رضایت از فرهنگ سازمانی و محیط کار کمتر می‌شود گویی سازمان کمتر می‌تواند انتظارات کارکنانش را از محیط کار برآورده سازد. هر چه سازمان بزرگ‌تر می‌شود هم کارکنان از فرهنگ سازمان و محیط کار خود ناراضی‌تر می‌شوند.</p>
 <section id="امتیاز-کلی-فرهنگ-سازمانی-و-محیط-کار-بر-حسب-جنس" class="level4">
 <h4 class="anchored" data-anchor-id="امتیاز-کلی-فرهنگ-سازمانی-و-محیط-کار-بر-حسب-جنس">امتیاز کلی فرهنگ سازمانی و محیط کار بر حسب جنس</h4>
 <div id="d0049e17-5168-4263-9f44-3d5dca70738d" class="cell" data-execution_count="19">
@@ -1495,7 +1499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1520,7 +1524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1544,7 +1548,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1569,7 +1573,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1578,6 +1582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="بخش-۷-مدیریت-و-رهبری" class="level3">
 <h3 class="anchored" data-anchor-id="بخش-۷-مدیریت-و-رهبری">بخش ۷: مدیریت و رهبری</h3>
+<p>اختلاف میان زنان و مردان در این مورد کمتر از موارد قبلی است و هر دو گروه تقریبا نظراتی شبیه هم دارند. اما الگوهای قبلی درباره سن و اندازه شرکت تکرار می‌شود، یعنی با افزایش آن‌ها، رضایت کاهش می‌یابد و روابط با مدیران تیره‌تر می‌گردد.</p>
 <section id="امتیاز-کلی-مدیریت-و-رهبری-بر-حسب-جنس" class="level4">
 <h4 class="anchored" data-anchor-id="امتیاز-کلی-مدیریت-و-رهبری-بر-حسب-جنس">امتیاز کلی مدیریت و رهبری بر حسب جنس</h4>
 <div id="f32912c1-98eb-4c0a-b1bb-d29ff247bbac" class="cell" data-execution_count="23">
@@ -1597,7 +1602,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1622,7 +1627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1646,7 +1651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1671,7 +1676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="part06_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="part06_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
